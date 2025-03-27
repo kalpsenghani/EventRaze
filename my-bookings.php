@@ -16,7 +16,7 @@ else{
 <html class="no-js" lang="en">
     <head>
 
-        <title>Event Management System | My Bookings </title>
+        <title>EventRaze | My Bookings </title>
         <!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- animate css -->

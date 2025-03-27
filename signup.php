@@ -48,7 +48,7 @@ echo "<script>alert('Error : Something went wrong. Please try again');</script>"
 <html class="no-js" lang="en">
     <head>
 
-        <title>Event Management System | user signup </title>
+        <title>EventRaze | user signup </title>
 		<!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- animate css -->

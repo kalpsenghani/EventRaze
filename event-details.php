@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 error_reporting(0);
@@ -101,7 +100,7 @@ echo "<script>alert('Error : Something went wrong. Please try again');</script>"
 // Event Details
 $eid=intval($_GET['evntid']);
 $isactive=1;
-$sql = "SELECT tblcategory.CategoryName,tblevents.EventName,tblevents.EventLocation,tblevents.EventStartDate,tblevents.EventEndDate,tblevents.EventImage,tblevents.id,tblevents.EventDescription,tblevents.PostingDate,tblsponsers.sponserName,tblsponsers.sponserLogo,tblevents.EventImage from tblevents left join tblcategory on tblcategory.id=tblevents.CategoryId left join tblsponsers on tblsponsers.id=tblevents.SponserId where tblevents.id=:eid and tblevents.IsActive=:isactive";
+$sql = "SELECT tblcategory.CategoryName,tblevents.EventName,tblevents.EventLocation,tblevents.EventStartDate,tblevents.EventEndDate,tblevents.EventImage,tblevents.id,tblevents.EventDescription,tblevents.PostingDate,tblsponsers.sponserName,tblsponsers.sponserLogo,tblevents.EventImage, tblevents.Ticketprice from tblevents left join tblcategory on tblcategory.id=tblevents.CategoryId left join tblsponsers on tblsponsers.id=tblevents.SponserId where tblevents.id=:eid and tblevents.IsActive=:isactive";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isactive',$isactive,PDO::PARAM_STR);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
@@ -154,7 +153,8 @@ foreach($results as $row)
                                     <li><i class="zmdi zmdi-calendar-note"></i>
                                         <?php echo htmlentities($row->EventStartDate);?> To
                                         <?php echo htmlentities($evntenddate=$row->EventEndDate);?></li>
-                                    <li><i class="zmdi zmdi-pin"></i><?php echo htmlentities($row->EventLocation);?> </li>             
+                                    <li><i class="zmdi zmdi-pin"></i><?php echo htmlentities($row->EventLocation);?> </li>
+                                    <li><i class="zmdi zmdi-money"></i>Ticket Price: $<?php echo htmlentities(number_format($row->Ticketprice, 2));?></li>
                                 </ul>
                                 <?php 
 $cadte=date('Y-m-d');
@@ -186,10 +186,11 @@ if(strlen($_SESSION['usrid'])=='0'){
 
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Book event</h4>
-      </div>
+    <div class="about-btn"> 
+        <a href="payment-form.php?bookingid=<?php echo htmlentities($bookingid); ?>" class="btn btn-info btn-lg">Pay Now</a>
+    </div>
+
+
       <div class="modal-body">
         <form name="bookevent" method="post">
         <p><input type="text" placeholder="Number of members" class="info" name="noofmembers" required="true"></p>

@@ -43,6 +43,10 @@
                         </li>
 
                         <li>
+                            <a href="manage-venues.php"><i class="fa fa-book"></i> Manage  Venues</a>
+                        </li>
+
+                        <li>
                             <a href="#"><i class="fa fa-book"></i> Manage Bookings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -74,7 +78,7 @@
                             <!-- /.nav-second-level -->
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Website Setting<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -85,8 +89,7 @@
                                 </li>
                             
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

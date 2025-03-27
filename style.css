@@ -166,7 +166,6 @@ body { }
 .pt85 { padding-top: 85px }
 .pb85 { padding-bottom: 85px }
 .pb90 { padding-bottom: 90px }
-.pb90 { padding-bottom: 90px }
 .ptb90 { padding: 90px 0 }
 .mt100 { margin-top: 100px }
 .mb100 { margin-bottom: 100px }
@@ -183,7 +182,7 @@ body { }
 /*----------------------------------------*/
 .header-top {
     color: #999;
-    font-size: 13px;
+    font-size: 18px;
 }
 .phone { float: left }
 .email {
@@ -202,7 +201,7 @@ body { }
 .login-register { float: right }
 .header-top {
     color: #ddd;
-    font-size: 13px;
+    font-size: 18px;
     height: 50px;
     line-height: 48px;
     background: rgba(0,0,0,0.2);
@@ -212,104 +211,192 @@ body { }
 /*----------------------------------------*/
 /* 4. Main Menu
 /*----------------------------------------*/
-ul li { display: inline-block }
-.main-menu ul li a { color: #ddd }
-.logo-menu-area { padding: 35px 0 }
-.main-menu ul li { margin-right: 40px }
-.main-menu ul li:last-child { margin: 0 }
-.header-area {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 999;
+.main-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 80px;
 }
-.main-menu ul li a:hover { color: #ff004d }
-.main-menu li.current a { color: #ff004d }
-/* slider */
-.header-slider-area { position: relative }
-.nivo-caption {
-    background: transparent none repeat scroll 0 0;
-    bottom: auto;
-    color: #fff;
-    height: auto;
-    left: 0;
-    opacity: 1;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    overflow: hidden;
-    padding: 0;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-.slide1-text p {
-    font-size: 18px;
-    line-height: 48px;
-    padding: 0;
-    text-transform: uppercase;
-}
-.slide1-text .cap-title h1 {
-    font-family: "Source Sans Pro",sans-serif;
-    font-size: 46px;
-    line-height: 44px;
+
+#nav {
+    display: flex;
+    align-items: center;
     margin: 0;
-    text-transform: uppercase;
-    font-weight: 700;
+    padding: 0;
+    gap: 10px;
 }
-.event-date {
-    float: left;
-    margin-right: 30px;
+
+#nav li {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    position: relative;
 }
-.event-location { float: left }
-.date-address i {
-    font-size: 20px;
-    margin-right: 15px;
-}
-.date-address {
-    line-height: 48px;
-    margin: 10px 0;
-    overflow: hidden;
-}
-.nivoSlider img { height: 100vh !important }
-/* btn-style */
-a.btn-def {
-    border: 1px solid #f1f1f1;
-    border-radius: 5px;
-    color: #f1f1f1;
-    display: inline-block;
-    padding: 15px 30px;
-    text-transform: uppercase;
-}
-a.btn-def:hover {
-    background: #ff004d none repeat scroll 0 0;
-    border: 1px solid #ff004d;
+
+#nav li a {
     color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 18px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
 }
-a.btn-def.bnt-2 {
-    border: 1px solid #555;
-    color: #555;
-    padding: 10px 20px;
-}
-a.btn-def.bnt-2:hover {
-    border: 1px solid #ff004d;
-    color: #f1f1f1;
-}
-a.btn-def.bnt-2.small { padding: 10px 20px }
-a.btn-def.bnt-2.big {
-    line-height: 16px;
-    padding: 11px 75px;
-}
-.btn-def.bnt-3.red-color {
-    background: #ff004d none repeat scroll 0 0;
-    border-color: #ff004d;
-    color: #fff;
-    padding: 9px 33px;
-}
-.btn-def.bnt-3.red-color:hover {
-    background: transparent none repeat scroll 0 0;
+
+#nav li a:hover {
     color: #ff004d;
 }
-/* end btn style */
+
+/* Search Bar Styles */
+.search-item {
+    margin: 0 15px !important;
+}
+
+.header-search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    height: 45px;
+    width: 220px;
+    padding: 8px 45px 8px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.search-button {
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Auth Button Styles */
+.btn-auth {
+    border: 2px solid transparent !important;
+    border-radius: 30px !important;
+    padding: 10px 22px !important;
+    margin-left: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    min-width: auto !important;
+}
+
+/* Signup Button */
+a[href="signup.php"].btn-auth {
+    background: #ff004d !important;
+    border-color: #ff004d !important;
+}
+
+a[href="signup.php"].btn-auth:hover {
+    background: transparent !important;
+    color: #ff004d !important;
+}
+
+/* Login Button */
+a[href="signin.php"].btn-auth {
+    background: transparent !important;
+    border-color: #fff !important;
+}
+
+a[href="signin.php"].btn-auth:hover {
+    background: #fff !important;
+    color: #333 !important;
+}
+
+/* My Account Button */
+a[href="profile.php"].btn-auth {
+    background: #00c9ff !important;
+    border-color: #00c9ff !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+}
+
+a[href="profile.php"].btn-auth:hover {
+    background: transparent !important;
+    color: #00c9ff !important;
+}
+
+/* About Us Link Specific */
+#nav li a[href="about-us.php"] {
+    padding: 12px 18px !important;
+    font-size: 14px !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    #nav {
+        gap: 3px;
+    }
+    
+    #nav li a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .search-input {
+        width: 180px;
+        height: 40px;
+    }
+    
+    .btn-auth {
+        padding: 8px 18px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-menu {
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    #nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .search-item {
+        width: 100%;
+        margin: 10px 0 !important;
+    }
+    
+    .header-search-form {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    #nav li {
+        margin: 0 3px;
+    }
+    
+    #nav li a {
+        padding: 8px 12px;
+    }
+    
+    .btn-auth {
+        padding: 8px 15px !important;
+    }
+}
 /*----------------------------------------*/
 /* 5. Slider
 /*----------------------------------------*/
@@ -1920,4 +2007,217 @@ select {
     background: #fff none repeat scroll 0 0;
     border-color: #ff004d;
     color: #ff004d;
+}
+
+/* Event Price Styles */
+.event-price {
+    color: #0f0c0d;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.event-price i {
+    margin-right: 5px;
+}
+
+.about-right ul li i.zmdi-money {
+    color: #28a745;
+}
+
+/* Price badge style */
+.ticket-price-badge {
+    background: #0b0607;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Header Tagline Styles */
+.header-tagline {
+    background: rgba(255, 0, 77, 0.9);
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    z-index: 99;
+}
+
+.header-tagline p {
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Animation for tagline */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-tagline {
+        padding: 8px 15px;
+    }
+    
+    .header-tagline p {
+        font-size: 14px;
+    }
+}
+
+/* View Details Button Styles */
+.upcomming-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 15px 0;
+}
+
+.btn-def.bnt-2.small {
+    display: inline-block;
+    padding: 12px 30px !important;
+    background: #ff004d;
+    color: #fff !important;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 2px solid #ff004d;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(255, 0, 77, 0.2);
+}
+
+.btn-def.bnt-2.small:hover {
+    background: transparent;
+    color: #ff004d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 77, 0.25);
+}
+
+/* Event Box Adjustments */
+.single-upcomming {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.single-upcomming .col-md-3,
+.single-upcomming .col-md-2,
+.single-upcomming .col-md-4 {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .btn-def.bnt-2.small {
+        padding: 10px 25px !important;
+        font-size: 13px;
+    }
+    
+    .upcomming-ticket {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .single-upcomming {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .upcomming-ticket {
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .btn-def.bnt-2.small {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Event Grid Layout */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    padding: 20px; /* Padding around the grid */
+}
+
+/* Individual Event Card Styles */
+.event-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.event-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Event Image */
+.event-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ff004d; /* Optional: border below image */
+}
+
+/* Event Details */
+.event-details {
+    padding: 15px; /* Padding inside the card */
+}
+
+.date-section {
+    display: flex;
+    justify-content: space-between; /* Space between start and end date */
+    margin-bottom: 10px; /* Space below date section */
+}
+
+.uc-event-title {
+    text-align: center; /* Center align for better aesthetics */
+}
+
+.uc-event-title a {
+    color: #333;
+    font-size: 18px; /* Adjusted font size for better visibility */
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Event Price and Location */
+.event-price, .venu-no {
+    text-align: center; /* Center align */
+    margin: 5px 0; /* Space above and below */
+}
+
+/* Button Section */
+.upcomming-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0; /* Space above and below button */
 }

@@ -33,7 +33,7 @@ echo "<script>window.location.href='my-bookings.php'</script>";
 <html class="no-js" lang="en">
     <head>
 
-        <title>Event Management System | Booking Details </title>
+        <title>EventRaze | Booking Details </title>
         <!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- animate css -->

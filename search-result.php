@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 error_reporting(0);
@@ -72,10 +71,10 @@ include('includes/config.php');
 // Search  events
 $isactive=1;
 $search=$_POST['serch'];
-$sql = "SELECT EventName,EventLocation,EventStartDate,EventEndDate,EventImage,id from tblevents where IsActive=:isactive and EventName like '%:search%' order by id desc ";
+$sql = "SELECT EventName,EventLocation,EventStartDate,EventEndDate,EventImage,id,Ticketprice from tblevents where IsActive=:isactive and EventName like :search order by id desc ";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isactive',$isactive,PDO::PARAM_STR);
-$query->bindParam(':search',$search,PDO::PARAM_STR);
+$query->bindParam(':search',"%$search%",PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
@@ -98,7 +97,12 @@ foreach($results as $row)
                                  <div class="col-md-3 col-sm-5 col-xs-12">
                                     <div class="uc-event-title">
                                         <div class="uc-icon"><i class="zmdi zmdi-globe-alt"></i></div>
-                                        <a href="#"><?php echo htmlentities($row->EventName);?></a>
+                                        <a href="event-details.php?evntid=<?php echo htmlentities($row->id); ?>">
+                                            <?php echo htmlentities($row->EventName); ?>
+                                        </a>
+                                        <div class="event-price">
+                                            <i class="zmdi zmdi-money"></i> $<?php echo htmlentities(number_format($row->Ticketprice, 2)); ?>
+                                        </div>
                                     </div> 
                                  </div> 
                                  <div class="col-md-2 col-sm-3 col-xs-12">

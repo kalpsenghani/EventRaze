@@ -9,7 +9,7 @@ error_reporting(0);
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Event Management System | About us  </title>
+        <title>EventRaze | About us  </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 

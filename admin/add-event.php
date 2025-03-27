@@ -18,6 +18,7 @@ $esdate=$_POST['eventstartdate'];
 $eedate=$_POST['eventenddate'];
 $elocation=$_POST['eventlocation'];
 $entimage=$_FILES["eventimage"]["name"];
+$eventprice = $_POST['eventprice'];
 $status=1;
 // get the image extension
 $extension = substr($entimage,strlen($entimage)-4,strlen($entimage));
@@ -35,7 +36,7 @@ $eventimage=md5($entimage).$extension;
 // Code for move image into directory
 move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimages/".$eventimage);
 // Query for insertion data into database
-$sql="INSERT INTO  tblevents(CategoryId,SponserId,EventName,EventDescription,EventStartDate,EventEndDate,EventLocation,EventImage,IsActive) VALUES(:catid,:spnserid,:ename,:ediscription,:esdate,:eedate,:elocation,:eventimage,:status)";
+$sql="INSERT INTO  tblevents(CategoryId,SponserId,EventName,EventDescription,EventStartDate,EventEndDate,EventLocation,EventImage,Ticketprice,IsActive) VALUES(:catid,:spnserid,:ename,:ediscription,:esdate,:eedate,:elocation,:eventimage,:eventprice,:status)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':catid',$catid,PDO::PARAM_STR);
 $query->bindParam(':spnserid',$spnserid,PDO::PARAM_STR);
@@ -45,6 +46,7 @@ $query->bindParam(':esdate',$esdate,PDO::PARAM_STR);
 $query->bindParam(':eedate',$eedate,PDO::PARAM_STR);
 $query->bindParam(':elocation',$elocation,PDO::PARAM_STR);
 $query->bindParam(':eventimage',$eventimage,PDO::PARAM_STR);
+$query->bindParam(':eventprice',$eventprice,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -194,10 +196,48 @@ foreach($results as $row)
 <input  class="form-control" type="date" name="eventenddate" autocomplete="off" required autofocus />
 </div>
 
-<!--Event Location -->
+<!-- Event Location -->
 <div class="form-group">
-<label>Event location</label>
-<input  class="form-control" type="text" name="eventlocation" autocomplete="off" required autofocus />
+    <label>Expected Attendees</label>
+    <input type="number" name="min_capacity" id="min_capacity" class="form-control" required>
+</div>
+
+<div class="form-group">
+    <label>Venues</label>
+    <select class="form-control" name="venue" id="venue" autocomplete="off" required>
+        <option>Select Venue</option>
+        <?php
+        // Fetching all venues to show in the dropdown
+        $sql = "SELECT venue_id, venue_name, capacity FROM tblvenues WHERE capacity >= :min_capacity";
+        if (isset($_POST['min_capacity'])) {
+            $min_capacity = $_POST['min_capacity'];
+        } else {
+            $min_capacity = 0; // Default value if no input is given
+        }
+        
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':min_capacity', $min_capacity, PDO::PARAM_INT);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_OBJ);
+        if ($query->rowCount() > 0) {
+            foreach ($results as $row) { ?>
+                <option value="<?php echo htmlentities($row->venue_id);?>">
+                    <?php echo htmlentities($row->venue_name); ?> (Capacity: <?php echo htmlentities($row->capacity); ?>)
+                </option>
+            <?php }
+        } else { ?>
+            <option>No venues available</option>
+        <?php }
+        ?>
+    </select>
+</div>
+
+
+
+<!--Event Price -->
+<div class="form-group">
+    <label>Event Price</label>
+    <input class="form-control" type="number" name="eventprice" step="0.01" required autocomplete="off" />
 </div>
 
 <!--Event Featured Image -->
@@ -232,6 +272,9 @@ foreach($results as $row)
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <script src="../dist/js/sb-admin-2.js"></script>
+
+</script>
+
 </body>
 </html>
 <?php } ?>

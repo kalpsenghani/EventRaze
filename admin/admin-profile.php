@@ -28,7 +28,7 @@ $msg="Your profile updated.";
 
 <head>
 
-    <title>EMS | Admin Profile</title>
+    <title>EventRaze | Admin Profile</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

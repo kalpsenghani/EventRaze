@@ -11,7 +11,7 @@ include('includes/config.php');
 <html class="no-js" lang="en">
     <head>
 
-        <title>Event Management System | user signin </title>
+        <title>EventRaze | user signin </title>
 		<!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- animate css -->

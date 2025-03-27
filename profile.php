@@ -42,7 +42,7 @@ echo "<script>window.location.href='profile.php'</script>";
 <html class="no-js" lang="en">
     <head>
 
-        <title>Event Management System | user profile </title>
+        <title>EventRaze | user profile </title>
 		<!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- animate css -->

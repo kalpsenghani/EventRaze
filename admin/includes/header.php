@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>
                 </button>
 <a class="navbar-brand" href="dashboard.php">
-Event Mangement System | Admin Panel
+EventRaze | Admin Panel
 </a>
             </div>
             <!-- /.navbar-header -->

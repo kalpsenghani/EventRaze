@@ -30,12 +30,31 @@ echo "<script>alert('Error : Something went wrong. Please try again');</script>"
 }
 
 }
+$searchQuery = '';
+if(isset($_POST['search_event'])) {
+    $eventName = $_POST['event_name'];
+    $eventLocation = $_POST['event_location'];
+    $eventCategory = $_POST['event_category'];
+    
+    // Build search query with filters
+    $searchQuery = "WHERE IsActive = 1";
+    
+    if(!empty($eventName)) {
+        $searchQuery .= " AND EventName LIKE :eventName";
+    }
+    if(!empty($eventLocation)) {
+        $searchQuery .= " AND EventLocation LIKE :eventLocation";
+    }
+    if(!empty($eventCategory)) {
+        $searchQuery .= " AND EventCategory LIKE :eventCategory";
+    }
+}
 
     ?>
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <title>Event Management System | Home Page </title>
+        <title>EventRaze | Home Page </title>
         <!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- animate css -->
@@ -90,7 +109,7 @@ echo "<script>alert('Error : Something went wrong. Please try again');</script>"
                             <div class="slide1-text">
                                 <div class="middle-text slide-def">
                             <div class="cap-dec wow fadeInDown" data-wow-duration=".9s" data-wow-delay="0.2s" style="margin-top:-100px">
-                                        <h1 align="center">Event Management System</h1>
+                                        <h1 align="center">Explore the vibrant world of <b>EVENTS</b> happening around you!!</h1>
                                     </div>
                                   
                                  
@@ -111,7 +130,7 @@ echo "<script>alert('Error : Something went wrong. Please try again');</script>"
 <?php
 // Fetching Upcomong events
 $isactive=1;
-$sql = "SELECT EventName,EventLocation,EventStartDate,EventEndDate,EventImage,id from tblevents where IsActive=:isactive order by id desc limit 5";
+$sql = "SELECT EventName, EventLocation, EventStartDate, EventEndDate, EventImage, Ticketprice, id from tblevents where IsActive=:isactive order by id desc limit 5";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isactive',$isactive,PDO::PARAM_STR);
 $query->execute();
@@ -138,6 +157,11 @@ foreach($results as $row)
                                         <div class="uc-icon"><i class="zmdi zmdi-globe-alt"></i></div>
                                         <a href="#"><?php echo htmlentities($row->EventName);?></a>
                                     </div> 
+                                 </div> 
+                                 <div class="col-md-3 col-sm-5 col-xs-12">
+                                 <div class="event-price">
+                                        <i class="zmdi zmdi-money"></i> <?php echo htmlentities(number_format($row->Ticketprice, 2)); ?>
+                                </div> 
                                  </div> 
                                  <div class="col-md-2 col-sm-3 col-xs-12">
                                      <div class="venu-no">
@@ -169,8 +193,6 @@ foreach($results as $row)
                                <div class="count-icon">
                                    <img src="img/icon/count-01.png" alt="">
                                </div>
-                                <h3><span class="counter2">50</span></h3>
-                                <p>+ Events</p>
                             </div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-12">
@@ -178,8 +200,6 @@ foreach($results as $row)
                                <div class="count-icon">
                                    <img src="img/icon/count-02.png" alt="">
                                </div>
-                                <h3><span class="counter2">19</span></h3>
-                                <p>+ Location</p>
                             </div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-12">
@@ -187,8 +207,6 @@ foreach($results as $row)
                                <div class="count-icon">
                                    <img src="img/icon/count-03.png" alt="">
                                </div>
-                                <h3><span class="counter2">12</span></h3>
-                                <p>+ Newtwork</p>
                             </div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-12">
@@ -196,8 +214,6 @@ foreach($results as $row)
                                <div class="count-icon">
                                    <img src="img/icon/count-04.png" alt="">
                                </div>
-                                <h3><span class="counter2">90</span></h3>
-                                <p>+ Countries</p>
                             </div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-12">
@@ -205,8 +221,6 @@ foreach($results as $row)
                                <div class="count-icon">
                                    <img src="img/icon/count-05.png" alt="">
                                </div>
-                                <h3><span class="counter2">5</span></h3>
-                                <p>Live Telecast</p>
                             </div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-12">
@@ -214,8 +228,6 @@ foreach($results as $row)
                                <div class="count-icon">
                                    <img src="img/icon/count-06.png" alt="">
                                </div>
-                                <h3><span class="counter2">200</span></h3>
-                                <p>+Idea</p>
                             </div>
                         </div>
                     </div>
@@ -248,7 +260,8 @@ foreach($results as $row)
             <!--call to action area End--> 
 
             <!--information area are start-->
-           <?php include_once('includes/footer.php');?>
+           <?php include_once('includes/footer.php');
+           ?>
             <!--footer area are start-->
          </div>   
         <!--body-wraper-are-end-->

@@ -29,7 +29,7 @@ echo "<script>window.location.href='all-booking.php'</script>";
 
 <head>
 
-    <title>EMS | Add Category</title>
+    <title>EventRaze | Add Category</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

@@ -28,7 +28,7 @@ unset($_SESSION['pnumber']);
 <html class="no-js" lang="en">
     <head>
 
-        <title>Event Management System | Forgot Password </title>
+        <title>EventRaze | Forgot Password </title>
 		<!-- bootstrap v3.3.6 css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- animate css -->

@@ -39,7 +39,7 @@ $_SESSION['delmsg']="Sponser deleted";
 
 <head>
 
-    <title>EMS | Manage Sponsers</title>
+    <title>EMS | Manage Sponsors</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -83,7 +83,7 @@ $_SESSION['delmsg']="Sponser deleted";
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header"> Manage Sponsers</h1>
+                    <h1 class="page-header"> Manage Sponsors</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -92,14 +92,14 @@ $_SESSION['delmsg']="Sponser deleted";
                     <span class="icon text-white-50">
                       <i class="fa fa-check"></i>
                     </span>
-                    <span class="text">Add Sponser</span>
+                    <span class="text">Add Sponsor</span>
                   </a></div>
             <!-- /.row -->
             <div class="row" style="margin-top:1%">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           Manage Sponsers
+                           Manage Sponsors
                         </div>
 
  <?php if($_SESSION['delmsg']!="")
@@ -120,7 +120,7 @@ $_SESSION['delmsg']="Sponser deleted";
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Sponser</th>
+                                        <th>Sponsor</th>
                                         <th>Logo</th>
                                         <th>Creation Date</th>
                                         <th>Action</th>

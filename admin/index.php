@@ -37,7 +37,7 @@ echo "<script>alert('Invalid Details');</script>";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Event Management System | Admin login </title>
+    <title>EventRaze | Admin login </title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
