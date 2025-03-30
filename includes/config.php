@@ -16,21 +16,17 @@
 ?>
 
 <?php
-
-if (file_exists(__DIR__ . '/.env')) {
-    $env = parse_ini_file(__DIR__ . '/.env');
-} else {
-    $env = $_ENV;
-}
-
-define('DB_HOST', $env['DB_HOST']);
-define('DB_USER', $env['DB_USER']);
-define('DB_PASS', $env['DB_PASS']);
-define('DB_NAME', $env['DB_NAME']);
+$host = "eventraze-db-do-user-18780292-0.d.db.ondigitalocean.com"; // From DigitalOcean
+$dbname = "ems";
+$username = "doadmin";
+$password = "AVNS_82Lx5oEBtiIhnq1K_UQ";
+$port = 25060; // Use DigitalOcean’s provided port
 
 try {
-    $dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    exit("Error: " . $e->getMessage());
+    die("Database connection failed: " . $e->getMessage());
 }
 ?>
+
