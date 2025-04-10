@@ -61,7 +61,7 @@ EMS/
 ├── css/ js/ images/    # Assets
 ├── sql/ems.sql         # MySQL dump
 └── index.php           # Landing page
-
+```
 ## 🚀 Getting Started
 
 ### ⚙️ Setup Instructions
