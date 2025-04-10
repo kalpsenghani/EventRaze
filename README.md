@@ -1,70 +1,101 @@
-Event Management System
+<h1 align="center">🎉 Event Management System (EMS)</h1>
 
-Event Management System (EMS) is a web-based application developed in PHP and MySQL. The objective of this application is to efficiently manage all event-related data within an organization. This system maintains a centralized database of event information and supports various functions and processes to manage data effectively.
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-7.x-blue?style=flat-square&logo=php" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-5.x-orange?style=flat-square&logo=mysql">
+  <img src="https://img.shields.io/badge/License-MIT-success?style=flat-square">
+</p>
 
-Project Requirements
+<p align="center" style="color: #ccc;">
+  <em>A sleek, centralized platform to manage all your event needs with ease.</em>
+</p>
 
-Project Name: Event Management System in PHP
+---
 
-Language Used: PHP 5.6, PHP 7.x
+## 🌌 Overview
 
-Database: MySQL 5.x
+The **Event Management System (EMS)** is a fully responsive, web-based application built with **PHP** and **MySQL**, tailored to streamline event planning and management tasks. EMS empowers administrators and users to interact seamlessly through an intuitive dashboard.
 
-User Interface Design: HTML, AJAX, jQuery, JavaScript
+---
 
-Web Browser Compatibility: Mozilla Firefox, Google Chrome, Internet Explorer 8, Opera
+## ✨ Key Features
 
-Software Requirements: XAMPP / WAMP / MAMP / LAMP (any one)
+### 🔐 Admin Panel
+- 📊 Dashboard overview (categories, sponsors, events, users, bookings)
+- 📂 Manage Event Categories & Sponsors
+- 🗓️ Add/Update Events
+- 👥 Manage Users (edit/block)
+- ✅ Confirm or Cancel Bookings
+- 📰 Post or Delete News Updates
+- ⚙️ Update Website Content ("About Us", settings)
+- 🛡️ Profile & Password Management
 
-Last Updated: 22 May 2023
+### 🙋 User Panel
+- 🔍 Browse Events, News, Contact Info
+- 📝 Register & Book Events
+- ❌ Cancel Pending Bookings
+- 🧾 Manage Profile & Password
+- 🔁 Password Recovery
 
-Project Modules
+---
 
-The EMS project consists of two primary modules:
+## 🛠️ Tech Stack
 
-Admin Module
+| Layer       | Technologies                           |
+|-------------|-----------------------------------------|
+| Frontend    | HTML, CSS, JavaScript, jQuery, AJAX     |
+| Backend     | PHP 5.6 / 7.x                           |
+| Database    | MySQL 5.x                               |
+| Server      | XAMPP / WAMP / MAMP / LAMP              |
+| Compatibility | Firefox, Chrome, Edge, Opera          |
 
-User Module
+---
 
-Admin Module
+## 📁 Project Structure
 
-The admin has full control over the event management system and can perform the following actions:
+```plaintext
+EMS/
+├── admin/              # Admin dashboard
+├── user/               # User panel
+├── includes/           # DB config, common functions
+├── css/ js/ images/    # Assets
+├── sql/ems.sql         # MySQL dump
+└── index.php           # Landing page
 
-Dashboard: View an overview of listed categories, sponsors, total events, total registered users, total bookings, total new bookings, total confirmed bookings, and total canceled bookings.
+## 🚀 Getting Started
 
-Category Management: Add and update event categories.
+### ⚙️ Setup Instructions
 
-Manage Sponsors: Add, update, and delete sponsor details.
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/kalpsenghani/EventRaze.git
 
-Events Management: Add and update events.
+2. **Import the database**
 
-Manage Users: Update details of registered users and block users if necessary.
+     Go to phpMyAdmin
 
-Manage Booking: Confirm or cancel event bookings.
+     Create a new DB: ems
 
-News Management: Add and delete news updates related to events.
+     Import sql/ems.sql
 
-Website Settings: Update "About Us" and other general website settings.
+3. **Configure DB Connection 
+    
+    In includes/dbconfig.php:**
 
-Admin Profile Management: Update profile details, change password, and recover password.
+    $dbHost = "localhost";
+    $dbUser = "root";
+    $dbPass = "";
+    $dbName = "ems";
+    
+4. **Run on Localhost**
 
-User Module
+     Open browser and visit:
 
-There are two types of users in the system:
+     http://localhost/ems/
 
-Guest Users:
+🔑 **Admin Access**
 
-View general information such as "About Us," event details, contact details, and event-related news.
+Use the following credentials to log in to the Admin Dashboard:
 
-Registered Users:
-
-Book events.
-
-Update their profile information.
-
-Change their password.
-
-Cancel bookings that have not been confirmed.
-
-Recover their password.
-
+👤 Username: admin
+🔒 Password: Test@123
