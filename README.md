@@ -78,15 +78,15 @@ EMS/
 
      Import sql/ems.sql
 
-3. **Configure DB Connection 
+3. **Configure DB Connection**
     
-    In includes/dbconfig.php:**
-
+    In includes/dbconfig.php:
+```
     $dbHost = "localhost";
     $dbUser = "root";
     $dbPass = "";
     $dbName = "ems";
-    
+ ```   
 4. **Run on Localhost**
 
      Open browser and visit:
@@ -98,4 +98,5 @@ EMS/
 Use the following credentials to log in to the Admin Dashboard:
 
 👤 Username: admin
+
 🔒 Password: Test@123
